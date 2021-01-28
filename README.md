@@ -9,5 +9,7 @@ En el navegador ir a:
 "localhost:8080" 
 "IP:8080" para acceder desde otro PC en la misma red wifi
 
-Usuario: admin
-Password: admin
+Usuario: user
+Password: p4ssw0rd
+
+Nota. Indica "tudominio.com"
