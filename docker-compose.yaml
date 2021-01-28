@@ -11,7 +11,7 @@ services:
       - db
       - redis
     environment:
-      - OWNCLOUD_DOMAIN=cloud.labarta.xyz
+      - OWNCLOUD_DOMAIN="tudominio.com"
       - OWNCLOUD_DB_TYPE=mysql
       - OWNCLOUD_DB_NAME=owncloud
       - OWNCLOUD_DB_USERNAME=owncloud
@@ -43,7 +43,6 @@ services:
     restart: always
     environment:
       - REDIS_DATABASES=1
-    healthcheck:
     volumes:
       - ./redis:/var/lib/redis
 
