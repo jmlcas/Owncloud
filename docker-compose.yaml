@@ -7,19 +7,18 @@ services:
     restart: always
     ports:
       - 8080:8080
-      - 8081:8081
     depends_on:
       - db
       - redis
     environment:
-      - OWNCLOUD_DOMAIN=tudominio.com  # Nombre dominio
+      - OWNCLOUD_DOMAIN=tudominio.com  # Nombre dominio válido 
       - OWNCLOUD_DB_TYPE=mysql
       - OWNCLOUD_DB_NAME=owncloud
       - OWNCLOUD_DB_USERNAME=owncloud
       - OWNCLOUD_DB_PASSWORD=owncloud
       - OWNCLOUD_DB_HOST=db
       - OWNCLOUD_ADMIN_USERNAME=user      # Usuario admin Owncloud
-      - OWNCLOUD_ADMIN_PASSWORD=password  # Contraseña admin Owncloud 
+      - OWNCLOUD_ADMIN_PASSWORD=p4ssw0rd  # Contraseña admin Owncloud 
       - OWNCLOUD_MYSQL_UTF8MB4=true
       - OWNCLOUD_REDIS_ENABLED=true
       - OWNCLOUD_REDIS_HOST=redis
