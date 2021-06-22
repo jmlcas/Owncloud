@@ -12,4 +12,4 @@ En el navegador ir a:
 Usuario: user
 Password: p4ssw0rd
 
-Nota. Indica "tudominio.com"
+Nota. Indica "tudominio.com" Debe ser un dominio válido y debes redirigir los DNS
