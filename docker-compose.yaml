@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
   owncloud:
-    image: owncloud/server
+    image: owncloud/server:latest    # 10.13.2-arm64v8
     restart: always
     ports:
       - 8080:8080
