@@ -11,7 +11,7 @@ services:
       - db
       - redis
     environment:
-      - OWNCLOUD_DOMAIN=tudominio.com  # Nombre dominio válido 
+      - OWNCLOUD_TRUSTED_DOMAINS=tudominio.com  # IP # Nombre dominio válido 
       - OWNCLOUD_DB_TYPE=mysql
       - OWNCLOUD_DB_NAME=owncloud
       - OWNCLOUD_DB_USERNAME=owncloud
@@ -26,27 +26,19 @@ services:
       - ./files:/mnt/data
 
   db:
-    image: webhippie/mariadb:latest
+    image: mariadb:latest
     restart: always
     environment:
-      - MARIADB_ROOT_PASSWORD=owncloud
-      - MARIADB_USERNAME=owncloud
-      - MARIADB_PASSWORD=owncloud
-      - MARIADB_DATABASE=owncloud
-      - MARIADB_MAX_ALLOWED_PACKET=128M    # Puedes variar este parámetro
-      - MARIADB_INNODB_LOG_FILE_SIZE=64M   # Puedes variar este parámetro
+      - MYSQL_DATABASE=owncloud
+      - MYSQL_ROOT_PASSWORD=owncloud
+      - MYSQL_USER=owncloud
+      - MYSQL_PASSWORD=owncloud
     volumes:
       - ./mysql:/var/lib/mysql
 
   redis:
-    image: webhippie/redis:latest
+    image: redis:latest
     restart: always
-    environment:
-      - REDIS_DATABASES=1
     volumes:
       - ./redis:/var/lib/redis
-
-volumes:
-  files:
-  mysql:
-  redis:      
+  
