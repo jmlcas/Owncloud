@@ -3,15 +3,15 @@ services:
   owncloud:
     image: owncloud/server:latest    # 10.13.2-arm64v8
     container_name: owncloud
-    restart: always
+    restart: unless-stopped
     ports:
-      - 8080:8080
+      - "8080:8080"
     depends_on:
       - db
       - redis
     environment:
-      - OWNCLOUD_DOMAIN=tudominio.com  # IP:8080 # Nombre dominio válido    
-      - OWNCLOUD_TRUSTED_DOMAINS=tudominio.com  # IP # Nombre dominio válido 
+      - OWNCLOUD_DOMAIN=localhost:8080  # IP:8080 # tu.dominio.com    
+      - OWNCLOUD_TRUSTED_DOMAINS=localhost  # IP # dominio.com 
       - OWNCLOUD_DB_TYPE=mysql
       - OWNCLOUD_DB_NAME=owncloud
       - OWNCLOUD_DB_USERNAME=owncloud
@@ -28,7 +28,7 @@ services:
   db:
     image: mariadb:latest
     container_name: own_mariadb
-    restart: always
+    restart: unless-stopped
     environment:
       - MYSQL_DATABASE=owncloud
       - MYSQL_ROOT_PASSWORD=owncloud
@@ -41,7 +41,7 @@ services:
   redis:
     image: redis:latest
     container_name: own_redis
-    restart: always
+    restart: unless-stopped
     command: ["--databases", "1"]
     volumes:
       - ./redis:/data
