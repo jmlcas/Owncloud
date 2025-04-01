@@ -10,8 +10,8 @@ services:
       - db
       - redis
     environment:
-      - OWNCLOUD_DOMAIN=localhost:8080  # IP:8080 # tu.dominio.com    
-      - OWNCLOUD_TRUSTED_DOMAINS=localhost  # IP # dominio.com 
+      - OWNCLOUD_DOMAIN=localhost:8080  # IP:8080 # dominio ó subdominio   
+      - OWNCLOUD_TRUSTED_DOMAINS=localhost  # IP  # dominio ó subdominio  
       - OWNCLOUD_DB_TYPE=mysql
       - OWNCLOUD_DB_NAME=owncloud
       - OWNCLOUD_DB_USERNAME=owncloud
